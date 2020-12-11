@@ -4,7 +4,7 @@ from keras import Model
 from keras.applications.vgg16 import VGG16
 from keras.layers import Dense, GlobalAveragePooling2D
 
-
+import models
 
 class CnnModel():
     def __init__(self, model='vgg16', num_classes=10):
@@ -29,4 +29,5 @@ class CnnModel():
         model = Model(inputs=base_model.input, outputs=logits)
         return model
 
-
+    def alexnet(self, num_classes=10):
+        return models.alexnet.AlexNet(num_classes)
